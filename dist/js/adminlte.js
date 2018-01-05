@@ -1000,6 +1000,7 @@ throw new Error('AdminLTE requires jQuery')
     animationSpeed: 500,
     accordion     : true,
     followLink    : false,
+    toggleView    : true,
     trigger       : '.treeview a'
   };
 
@@ -1040,6 +1041,10 @@ throw new Error('AdminLTE requires jQuery')
     var treeviewMenu = link.next(Selector.treeviewMenu);
     var parentLi     = link.parent();
     var isOpen       = parentLi.hasClass(ClassName.open);
+
+    if (!this.options.toggleView) {
+      return;
+    }
 
     if (!parentLi.is(Selector.treeview)) {
       return;
